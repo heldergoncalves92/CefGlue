@@ -1,0 +1,79 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ServiceStudio.WebViewImplementation.Themes.LightTheme">
+
+    <Styles.Resources>
+        <!-- N0 -->
+        <Color x:Key="ThemeBackgroundColor">#FFFFFF</Color>
+        <!-- N10 -->
+        <Color x:Key="ThemeForegroundColor">#202327</Color>
+        <!-- S0 -->
+        <Color x:Key="ThemeAccentColor">#DCECFD</Color>
+        <!-- S0 -->
+        <Color x:Key="ThemeAccentColor4">#DCECFD</Color>
+        <!-- N3 -->
+        <Color x:Key="ThemeControlMidColor">#E0E2E4</Color>
+        <!-- N3 -->
+        <Color x:Key="ThemeBorderMidColor">#E0E2E4</Color>
+
+        <!-- Text -->
+        <!-- N10 -->
+        <Color x:Key="PrimaryTextColor">#202327</Color>
+        <!-- N7 -->
+        <Color x:Key="SecondaryTextColor">#626568</Color>
+        <!-- N6 -->
+        <Color x:Key="PlaceholderTextColor">#87898D</Color>
+
+        <!-- Icons -->
+        <!-- N7 -->
+        <Color x:Key="PrimaryIconColor">#626568</Color>
+        <!-- N9 -->
+        <Color x:Key="PrimaryIconHoverColor">#2C2F32</Color>
+        <!-- N6 -->
+        <Color x:Key="SecondaryIconColor">#87898D</Color>
+        <!-- N8 -->
+        <Color x:Key="SecondaryIconHoverColor">#3B3D41</Color>
+
+        <!-- Panel Levels -->
+        <!-- N0 -->
+        <Color x:Key="PanelLevel1Color">#FFFFFF</Color>
+        <!-- N1 -->
+        <Color x:Key="PanelLevel2Color">#F7F8FA</Color>
+        <!-- N2 -->
+        <Color x:Key="PanelLevel3Color">#F1F2F4</Color>
+
+        <!-- Selections -->
+        <!-- S3 -->
+        <Color x:Key="HighlightColor">#157DF3</Color>
+        <!-- S0 -->
+        <Color x:Key="HighlightHoverColor">#DCECFD</Color>
+
+
+        <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{DynamicResource ThemeBackgroundColor}" />
+        <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{DynamicResource ThemeForegroundColor}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush" Color="{DynamicResource ThemeAccentColor}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{DynamicResource ThemeAccentColor4}" />
+        <SolidColorBrush x:Key="ThemeControlMidBrush" Color="{DynamicResource ThemeControlMidColor}" />
+        <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{DynamicResource ThemeBorderMidColor}" />
+        
+        <!-- Text -->
+        <SolidColorBrush x:Key="PrimaryTextBrush" Color="{DynamicResource PrimaryTextColor}" />
+        <SolidColorBrush x:Key="SecondaryTextBrush" Color="{DynamicResource SecondaryTextColor}" />
+        <SolidColorBrush x:Key="PlaceholderTextBrush" Color="{DynamicResource PlaceholderTextColor}" />
+
+        <!-- Icons -->
+        <SolidColorBrush x:Key="PrimaryIconBrush" Color="{DynamicResource PrimaryIconColor}" />
+        <SolidColorBrush x:Key="PrimaryIconHoverBrush" Color="{DynamicResource PrimaryIconHoverColor}" />
+        <SolidColorBrush x:Key="SecondaryIconBrush" Color="{DynamicResource SecondaryIconColor}" />
+        <SolidColorBrush x:Key="SecondaryIconHoverBrush" Color="{DynamicResource SecondaryIconHoverColor}" />
+
+        <!-- Panel Levels -->
+        <SolidColorBrush x:Key="PanelLevel1Brush" Color="{DynamicResource PanelLevel1Color}" />
+        <SolidColorBrush x:Key="PanelLevel2Brush" Color="{DynamicResource PanelLevel2Color}" />
+        <SolidColorBrush x:Key="PanelLevel3Brush" Color="{DynamicResource PanelLevel3Color}" />
+        
+        <!-- Selections -->
+        <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource HighlightColor}" />
+        <SolidColorBrush x:Key="HighlightHoverBrush" Color="{DynamicResource HighlightHoverColor}" />
+    </Styles.Resources>
+</Styles>

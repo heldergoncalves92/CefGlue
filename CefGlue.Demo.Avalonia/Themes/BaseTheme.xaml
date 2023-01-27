@@ -1,0 +1,65 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=netstandard">
+        
+    <Styles.Resources>
+        <Color x:Key="HotfixTopBarColor">#FFF1DC</Color>
+        <Color x:Key="HotfixCaptionColor">#626568</Color>
+        <Color x:Key="HotfixCaptionButtonsColor">#202327</Color>
+        <sys:Double x:Key="HotfixDisabledTabsOpacity">1</sys:Double>
+    </Styles.Resources>
+
+    <Style Selector="Window">
+        <Setter Property="FontFamily" Value="Noto Sans"/>
+    </Style>
+
+    <Style Selector="MenuItem">
+        <Setter Property="Height" Value="32" />
+    </Style>
+
+    <Style Selector="MenuItem CheckBox">
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="0,4"/>
+    </Style>
+
+    <Style Selector="ContextMenu">
+        <Setter Property="Padding" Value="0,3" />
+    </Style>
+
+    <Style Selector="MenuItem Popup">
+        <Setter Property="HorizontalOffset" Value="2" />
+        <Setter Property="VerticalOffset" Value="-5" />
+    </Style>
+
+    <Style Selector="MenuItem Popup > Border">
+        <Setter Property="Padding" Value="0,3" />
+    </Style>
+
+    <Style Selector="MenuItem Path#rightArrow">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.65" ScaleY="1.65" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Fill" Value="{DynamicResource SecondaryIconBrush}" />
+    </Style>
+
+    <Style Selector="MenuItem:selected Path#rightArrow">
+        <Setter Property="Fill" Value="{DynamicResource SecondaryIconHoverBrush}" />
+    </Style>
+
+    <!-- TODO: shadows are not "following" the round corners! They're being rendered as if the control is a rectangle. -->
+    <!--
+    <Style Selector="MenuItem /template/ Popup > Border">
+        <Setter Property="CornerRadius" Value="4" />
+    </Style>
+    <Style Selector="ContextMenu > Border">
+        <Setter Property="CornerRadius" Value="4" />
+    </Style>
+    -->
+</Styles>

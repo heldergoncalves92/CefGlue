@@ -1,0 +1,182 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="ServiceStudio.WebViewImplementation.AggregatorWindow"
+    xmlns:local="clr-namespace:ServiceStudio.WebViewImplementation"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    MinWidth="1080"
+    MinHeight="600"
+    Title="ODC Studio">
+    
+
+    <Grid>
+        <Grid.DataTemplates>
+            <DataTemplate DataType="{x:Type local:TabHeaderInfo}">
+                <DockPanel Height="16">
+                    <Image Source="{Binding ImageSource}"
+                        IsVisible="{Binding ImageVisibility}"
+                        Width="16"
+                        DockPanel.Dock="Left"
+                        Margin="8 0 0 0"/>
+                    <Button IsVisible="{Binding AllowClose}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Width="16"
+                        Height="16"
+                        Padding="0"
+                        Focusable="False"
+                        Click="OnTabCloseButtonClick"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        DockPanel.Dock="Right"
+                        Margin="0 0 8 0">
+                        <Button.Styles>
+                            <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Style>
+                            <Style Selector="Button">
+                                <Setter Property="Foreground" Value="{DynamicResource SecondaryIconBrush}"/>
+                            </Style>
+                            <Style Selector="TabItem:selected Button">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryIconHoverColor}"/>
+                            </Style>
+                            <Style Selector="Button:pointerover">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryIconHoverColor}"/>
+                            </Style>
+                            <Style Selector="Button:pressed">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryIconHoverColor}"/>
+                            </Style>
+                        </Button.Styles>
+                        <Path Stroke="{Binding (Button.Foreground),
+                                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"
+                            Width="8"
+                            Height="8"
+                            StrokeThickness="1"
+                            Data="M 0,0 10,10 M 10,0 0,10"
+                            Stretch="Uniform" />
+                    </Button>
+                    <TextBlock Text="{Binding Caption}"
+                        Margin="8 0 8 0"
+                        FontSize="12"
+                        TextTrimming="CharacterEllipsis"
+                        VerticalAlignment="Center">
+                        <TextBlock.Styles>
+                            <Style Selector="TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"/>
+                            </Style>
+                            <Style Selector="TabItem:pointerover TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                            </Style>
+                            <Style Selector="TabItem:pressed TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                            </Style>
+                            <Style Selector="TabItem:selected TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                            </Style>
+                            <Style Selector="Window:hotfix TabItem:disabled TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource HotfixCaptionColor}"/>
+                            </Style>
+                        </TextBlock.Styles>
+                    </TextBlock>
+                </DockPanel>
+            </DataTemplate>
+        </Grid.DataTemplates>
+
+        <Grid.Resources>
+            <System:Double x:Key="toggleButtonWidth">24.0</System:Double>
+            <System:Double x:Key="toggleButtonHeight">24.0</System:Double>
+        </Grid.Resources>
+
+        <!-- Adding a NativeMenuBar control so that we can test native menus while developing them in Windows.
+        The control will have no effect for Mac, according to the documentation.
+        In order to be able to click on the menus you must temporarily unset the DoubleTapped and PointerPressed of
+        the containing DockPanel, otherwise the menu items won't receive the click events. -->
+        <NativeMenuBar />
+
+        <TabControl Name="tabs"
+            SelectionChanged="OnSelectedTabChanged"
+            
+            Padding="0">
+            <TabControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <local:TabItemsControl RowDefinitions="Auto, Auto"
+                                           TabItemsIndex="1">
+                        <DockPanel Grid.RowSpan="2"
+                            HorizontalAlignment="Stretch"
+                            Margin="{Binding TitleBarMargin, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                            
+                            <ToggleButton Width="{StaticResource toggleButtonWidth}"
+                                Height="{StaticResource toggleButtonHeight}"
+                                Margin="4 0 16 0"
+                                BorderThickness="0"
+                                DockPanel.Dock="Left"
+                                HorizontalAlignment="Left">
+                                <Path Fill="{Binding (ToggleButton.Foreground),
+                                    RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}}"
+                                    Data="M8,12L4,6L12, 6Z"
+                                    Width="16"
+                                    Height="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                                <ToggleButton.Styles>
+                                    <Style Selector="ToggleButton">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryIconColor}"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton /template/ ContentPresenter">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton:pointerover">
+                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryIconHoverColor}"/>
+                                        <Setter Property="Background" Value="{DynamicResource HighlightHoverBrush}"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton:pressed /template/ ContentPresenter">
+                                        <Setter Property="Background" Value="{DynamicResource HighlightBrush}"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton:checked /template/ ContentPresenter">
+                                        <Setter Property="Background" Value="{DynamicResource HighlightBrush}"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton:pressed">
+                                        <Setter Property="Foreground" Value="{DynamicResource PanelLevel1Color}"/>
+                                    </Style>
+                                    <Style Selector="ToggleButton:checked">
+                                        <Setter Property="Foreground" Value="{DynamicResource PanelLevel1Color}"/>
+                                    </Style>
+                                </ToggleButton.Styles>
+                            </ToggleButton>
+                        </DockPanel>
+                        <Border BorderBrush="{DynamicResource ThemeControlMidBrush}" BorderThickness="0 0 0 1" Grid.Row="1" ZIndex="-1"/>
+                    </local:TabItemsControl>
+                </ItemsPanelTemplate>
+            </TabControl.ItemsPanel>
+            <TabControl.Styles>
+                <Style Selector="TabItem">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Height" Value="{Binding WindowDecorationMargin.Top}"/>
+                    <Setter Property="BorderThickness" Value="0 0 0 1" />
+                    <Setter Property="Padding" Value="8,8,8,7" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
+                </Style>
+                <Style Selector="TabItem:pointerover">
+                    <Setter Property="Background" Value="{DynamicResource PanelLevel3Color}"/>
+                </Style>
+                <Style Selector="TabItem:pressed">
+                    <Setter Property="Background" Value="{DynamicResource PanelLevel3Color}"/>
+                </Style>
+                <Style Selector="TabItem:selected">
+                    <Setter Property="Background" Value="{DynamicResource PanelLevel2Color}"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 0" />
+                    <Setter Property="Padding" Value="7,7,7,8" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ThemeControlMidBrush}" />
+                </Style>
+                <Style Selector="TabItem:selected:hide">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0 0 0 1" />
+                </Style>
+                <Style Selector="Window:hotfix TabItem:disabled">
+                    <Setter Property="Opacity" Value="{DynamicResource HotfixDisabledTabsOpacity}"/>
+                </Style>
+            </TabControl.Styles>
+        </TabControl>
+    </Grid>
+</Window>

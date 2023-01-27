@@ -1,8 +1,20 @@
 ﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Xilium.CefGlue.Demo.Avalonia.App">
+             x:Class="ServiceStudio.WebViewImplementation.App"
+             Name="ODC Studio">
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="About ODC Studio" Clicked="OnAboutClick"/>
+            <NativeMenuItemSeperator/>
+            <NativeMenuItem Header="Preferences..." Clicked="OnPreferencesClick" Gesture="CMD+,"/>
+        </NativeMenu>
+    </NativeMenu.Menu>
     <Application.Styles>
-        <StyleInclude Source="resm:Avalonia.Themes.Default.DefaultTheme.xaml?assembly=Avalonia.Themes.Default"/>
-        <StyleInclude Source="resm:Avalonia.Themes.Default.Accents.BaseLight.xaml?assembly=Avalonia.Themes.Default"/>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
+        <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml"/>
+        <StyleInclude Source="/Themes/BaseTheme.xaml" />
+
+        <!-- Styles for controls that we needed to re-template -->
+        <StyleInclude Source="/ControlTemplates/MenuItem.xaml" />
     </Application.Styles>
 </Application>

@@ -26,8 +26,4 @@
         <AddSyntheticProjectReferencesForSolutionDependencies>false</AddSyntheticProjectReferencesForSolutionDependencies>
     </PropertyGroup>
 
-    <!-- Generate documentation in Release builds. -->
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
 </Project>

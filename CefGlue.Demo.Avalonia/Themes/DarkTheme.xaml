@@ -1,0 +1,89 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=netstandard"
+        x:Class="ServiceStudio.WebViewImplementation.Themes.DarkTheme">
+
+    <Styles.Resources>
+        <!-- N9 -->
+        <Color x:Key="ThemeBackgroundColor">#2C2F32</Color>
+        <!-- N2 -->
+        <Color x:Key="ThemeForegroundColor">#F1F2F4</Color>
+        <!-- N2 -->
+        <Color x:Key="ThemeForegroundLowColor">#F1F2F4</Color>
+        <!-- S7 -->
+        <Color x:Key="ThemeAccentColor">#123661</Color>
+        <!-- S7 -->
+        <Color x:Key="ThemeAccentColor4">#123661</Color>
+        <!-- N8 -->
+        <Color x:Key="ThemeControlMidColor">#3B3D41</Color>
+        <!-- N8 -->
+        <Color x:Key="ThemeBorderMidColor">#3B3D41</Color>
+
+        <!-- Text -->
+        <!-- N2 -->
+        <Color x:Key="PrimaryTextColor">#F1F2F4</Color>
+        <!-- N5 -->
+        <Color x:Key="SecondaryTextColor">#A2A4A7</Color>
+        <!-- N6 -->
+        <Color x:Key="PlaceholderTextColor">#87898D</Color>
+
+        <!-- Icons -->
+        <!-- N5 -->
+        <Color x:Key="PrimaryIconColor">#A2A4A7</Color>
+        <!-- N3 -->
+        <Color x:Key="PrimaryIconHoverColor">#E0E2E4</Color>
+        <!-- N6 -->
+        <Color x:Key="SecondaryIconColor">#87898D</Color>
+        <!-- N4 -->
+        <Color x:Key="SecondaryIconHoverColor">#CCCDD0</Color>
+
+        <!-- Panel Levels -->
+        <!-- N11 -->
+        <Color x:Key="PanelLevel1Color">#171B1F</Color>
+        <!-- N10 -->
+        <Color x:Key="PanelLevel2Color">#202327</Color>
+        <!-- N9 -->
+        <Color x:Key="PanelLevel3Color">#2C2F32</Color>
+
+        <!-- Selections -->
+        <!-- S4 -->
+        <Color x:Key="HighlightColor">#006DE9</Color>
+        <!-- S7 -->
+        <Color x:Key="HighlightHoverColor">#123661</Color>
+
+        <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="{DynamicResource ThemeBackgroundColor}" />
+        <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{DynamicResource ThemeForegroundColor}" />
+        <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{DynamicResource ThemeForegroundLowColor}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush" Color="{DynamicResource ThemeAccentColor}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{DynamicResource ThemeAccentColor4}" />
+        <SolidColorBrush x:Key="ThemeControlMidBrush" Color="{DynamicResource ThemeControlMidColor}" />
+        <SolidColorBrush x:Key="ThemeBorderMidBrush" Color="{DynamicResource ThemeBorderMidColor}" />
+
+        <!-- Text -->
+        <SolidColorBrush x:Key="PrimaryTextBrush" Color="{DynamicResource PrimaryTextColor}" />
+        <SolidColorBrush x:Key="SecondaryTextBrush" Color="{DynamicResource SecondaryTextColor}" />
+        <SolidColorBrush x:Key="PlaceholderTextBrush" Color="{DynamicResource PlaceholderTextColor}" />
+
+        <!-- Icons -->
+        <SolidColorBrush x:Key="PrimaryIconBrush" Color="{DynamicResource PrimaryIconColor}" />
+        <SolidColorBrush x:Key="PrimaryIconHoverBrush" Color="{DynamicResource PrimaryIconHoverColor}" />
+        <SolidColorBrush x:Key="SecondaryIconBrush" Color="{DynamicResource SecondaryIconColor}" />
+        <SolidColorBrush x:Key="SecondaryIconHoverBrush" Color="{DynamicResource SecondaryIconHoverColor}" />
+
+        <!-- Panel Levels -->
+        <SolidColorBrush x:Key="PanelLevel1Brush" Color="{DynamicResource PanelLevel1Color}" />
+        <SolidColorBrush x:Key="PanelLevel2Brush" Color="{DynamicResource PanelLevel2Color}" />
+        <SolidColorBrush x:Key="PanelLevel3Brush" Color="{DynamicResource PanelLevel3Color}" />
+
+        <!-- Selections -->
+        <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource HighlightColor}" />
+        <SolidColorBrush x:Key="HighlightHoverBrush" Color="{DynamicResource HighlightHoverColor}" />
+    </Styles.Resources>
+
+    <Styles>
+        <Style Selector="Window:win Border:not(#PART_TransparencyFallback), Window:osx Border:not(#PART_TransparencyFallback)">
+            <Setter Property="BorderThickness" Value="0.5"/>
+        </Style>
+    </Styles>
+
+</Styles>

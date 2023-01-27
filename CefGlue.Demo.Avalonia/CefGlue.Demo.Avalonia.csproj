@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Xilium.CefGlue.Demo.Avalonia</AssemblyName>
     <RootNamespace>Xilium.CefGlue.Demo.Avalonia</RootNamespace>
     <Configurations>Debug;Release;Debug_WindowlessRender</Configurations>
@@ -23,39 +23,41 @@
     <CFBundleShortVersionString>DemoAvalonia</CFBundleShortVersionString>
     <CFBundleExecutable>Xilium.CefGlue.Demo.Avalonia</CFBundleExecutable>
     <CFBundleIconFile>AppName.icns</CFBundleIconFile> <!-- Will be copied from output directory -->
-    <NSPrincipalClass>NSApplication</NSPrincipalClass>
     <NSHighResolutionCapable>true</NSHighResolutionCapable>
   </PropertyGroup>
-    
-  <ItemGroup>
-    <None Remove="App.xaml" />
-    <None Remove="BrowserView.xaml" />
-    <None Remove="MainWindow.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="BrowserView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.xaml" />
-  </ItemGroup>
-    
-  <Import Project="$(ProjectDir)..\CefGlue.CopyLocal.props" />
-
+  
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" />
-    <PackageReference Include="Dotnet.Bundle" />
-    <PackageReference Include="Avalonia.Diagnostics" />
+    <PackageReference Include="cef.redist.osx64" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CefGlue.Avalonia\CefGlue.Avalonia.csproj" />
-    <ProjectReference Include="..\CefGlue\CefGlue.csproj" />
-    <ProjectReference Include="..\CefGlue.Common\CefGlue.Common.csproj" />
-    <ProjectReference Include="..\CefGlue.Common.Shared\CefGlue.Common.Shared.csproj" />
+    <None Include="@(CefRedistOSX64)">
+      <Visible>false</Visible>
+      <Link>$(OutputDirectory)\%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <PublishState>Included</PublishState>
+    </None>
   </ItemGroup>
 
-  <Import Project="$(ProjectDir)..\CefGlue.Common\build\CefGlue.Common.targets" />
+  <ItemGroup>
+    <None Remove="App.xaml" />
+    <AvaloniaResource Include="App.xaml" />
+    <None Remove="Themes\DarkTheme.xaml" />
+    <AvaloniaResource Include="Themes\DarkTheme.xaml" />
+    <None Remove="Themes\LightTheme.xaml" />
+    <AvaloniaResource Include="Themes\LightTheme.xaml" />
+    <None Remove="Themes\BaseTheme.xaml" />
+    <AvaloniaResource Include="Themes\BaseTheme.xaml" />
+    <None Remove="ServerPage\ServerPageTopLevelView.xaml" />
+    <None Remove="ControlTemplates\MenuItem.xaml" />
+    <AvaloniaResource Include="ControlTemplates\MenuItem.xaml" />
+    <None Remove="AggregatorWindow\AggregatorWindow.xaml" />
+    <AvaloniaResource Include="AggregatorWindow\AggregatorWindow.xaml" />
+    <None Remove="Aggregator\AggregatorView.xaml" />
+    <AvaloniaResource Include="Aggregator\AggregatorView.xaml" />
+  </ItemGroup>
+
 
 </Project>
