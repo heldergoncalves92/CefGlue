@@ -1,4 +1,10 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="ServiceStudio.WebViewImplementation.AggregatorView">
+        
+        <StackPanel>
+                <Button Name="btn" Height="100" Width="150"> New Dialog </Button>
+                <Button Name="btn-modal" Height="100" Width="150"> New Modal Dialog </Button>
+        </StackPanel>
+        
 </UserControl>
