@@ -26,7 +26,6 @@ namespace ServiceStudio.WebViewImplementation {
         private static ITheme CreateTheme(ThemeName theme) {
             return theme switch {
                 ThemeName.Dark  => new DarkTheme(),
-                ThemeName.Light => new LightTheme(),
                 _               => new LightTheme()
             };
         }
